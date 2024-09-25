@@ -14,7 +14,7 @@ const SignupForm = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/register', { email, password });
+      const response = await axios.post('http://localhost:5000/api/auth/register', { email, password });
       console.log('Response:', response);
       toast.success(response.data);
     } catch (error) {
