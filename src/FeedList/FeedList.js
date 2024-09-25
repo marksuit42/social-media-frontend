@@ -10,7 +10,6 @@ import AddComment from '../components/AddComment'; // Import AddComment componen
 const FeedList = () => {
   const { posts, setPosts, loading } = usePostContext();
   const [currentUser, setCurrentUser] = useState(null);
-  const [newContent, setNewContent] = useState('');
   const [editingPost, setEditingPost] = useState(null);
   const [updatedContent, setUpdatedContent] = useState('');
 
@@ -105,25 +104,6 @@ const FeedList = () => {
     }
   };
 
-  const handleNewPostSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post('https://social-media-backend-fw8c.onrender.com/api/posts', {
-        content: newContent,
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setPosts([response.data, ...posts]);
-      setNewContent('');
-      toast.success('Post created successfully');
-    } catch (error) {
-      console.error('Error creating new post:', error);
-      toast.error('Error creating new post');
-    }
-  };
 
   const handleCommentAdded = (postId, newComment) => {
     setPosts((prevPosts) =>
