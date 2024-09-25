@@ -16,7 +16,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
     const fetchCurrentUser = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/auth/current-user', {
+        const response = await axios.get('https://social-media-backend-fw8c.onrender.com/api/auth/current-user', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -30,7 +30,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
     const fetchComments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/posts/${postId}/comments`, {
+        const response = await axios.get(`https://social-media-backend-fw8c.onrender.com/api/posts/${postId}/comments`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -55,7 +55,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
       const token = localStorage.getItem('token');
       const author = currentUser._id;
       const response = await axios.post(
-        `http://localhost:5000/api/posts/${postId}/comments`,
+        `https://social-media-backend-fw8c.onrender.com/api/posts/${postId}/comments`,
         { content, author },
         {
           headers: {
@@ -78,7 +78,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `http://localhost:5000/api/comments/${commentId}/like`,
+        `https://social-media-backend-fw8c.onrender.com/api/comments/${commentId}/like`,
         {},
         {
           headers: {
@@ -96,7 +96,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
   const handleDeleteComment = async (commentId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/comments/${commentId}`, {
+      await axios.delete(`https://social-media-backend-fw8c.onrender.com/api/comments/${commentId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -112,7 +112,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5000/api/comments/${editCommentId}`,
+        `https://social-media-backend-fw8c.onrender.com/api/comments/${editCommentId}`,
         { content: editContent },
         {
           headers: {

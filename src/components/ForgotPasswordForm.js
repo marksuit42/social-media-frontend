@@ -11,7 +11,7 @@ const ForgotPasswordForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/forgot-password', { email, newPassword });
+      await axios.post('https://social-media-backend-fw8c.onrender.com/api/auth/forgot-password', { email, newPassword });
       toast.success('Password reset successfully!');
     } catch (error) {
       console.error('Error resetting password:', error);

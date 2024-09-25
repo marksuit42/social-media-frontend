@@ -16,17 +16,17 @@ export const PostProvider = ({ children }) => {
       try {
         const token = localStorage.getItem('token');
         const [postsResponse, followsResponse, currentUserResponse] = await Promise.all([
-          axios.get('http://localhost:5000/api/posts', {
+          axios.get('https://social-media-backend-fw8c.onrender.com/api/posts', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }),
-          axios.get('http://localhost:5000/api/follows/following', {
+          axios.get('https://social-media-backend-fw8c.onrender.com/api/follows/following', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }),
-          axios.get('http://localhost:5000/api/auth/current-user', {
+          axios.get('https://social-media-backend-fw8c.onrender.com/api/auth/current-user', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -66,7 +66,7 @@ export const PostProvider = ({ children }) => {
     const updatePosts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const postsResponse = await axios.get('http://localhost:5000/api/posts', {
+        const postsResponse = await axios.get('https://social-media-backend-fw8c.onrender.com/api/posts', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

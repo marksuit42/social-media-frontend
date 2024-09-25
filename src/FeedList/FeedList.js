@@ -18,7 +18,7 @@ const FeedList = () => {
     const fetchCurrentUser = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/auth/current-user', {
+        const response = await axios.get('https://social-media-backend-fw8c.onrender.com/api/auth/current-user', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -35,7 +35,7 @@ const FeedList = () => {
   const handleLikeToggle = async (postId, userHasLikedPost) => {
     try {
       const token = localStorage.getItem('token');
-      const url = `http://localhost:5000/api/likes`;
+      const url = `https://social-media-backend-fw8c.onrender.com/api/likes`;
       const method = userHasLikedPost ? 'delete' : 'post';
       await axios({
         method,
@@ -67,7 +67,7 @@ const FeedList = () => {
   const handleDeletePost = async (postId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`, {
+      await axios.delete(`https://social-media-backend-fw8c.onrender.com/api/posts/${postId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -88,7 +88,7 @@ const FeedList = () => {
   const handleUpdatePost = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/posts/${editingPost._id}`, {
+      await axios.put(`https://social-media-backend-fw8c.onrender.com/api/posts/${editingPost._id}`, {
         content: updatedContent,
       }, {
         headers: {
@@ -109,7 +109,7 @@ const FeedList = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:5000/api/posts', {
+      const response = await axios.post('https://social-media-backend-fw8c.onrender.com/api/posts', {
         content: newContent,
       }, {
         headers: {

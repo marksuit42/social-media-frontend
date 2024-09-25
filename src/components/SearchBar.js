@@ -9,7 +9,7 @@ const SearchBar = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/search?email=${email}`);
+      const response = await axios.get(`https://social-media-backend-fw8c.onrender.com/api/users/search?email=${email}`);
       if (response.data.length === 0) {
         setMessage('No user found with this email.');
         setResults([]);
@@ -26,7 +26,7 @@ const SearchBar = () => {
   const handleFollowRequest = async (userId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/follows/send', { userId }, {
+      await axios.post('https://social-media-backend-fw8c.onrender.com/api/follows/send', { userId }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

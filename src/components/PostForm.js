@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const fetchPost = async (content, token) => {
   const response = await axios.post(
-    'http://localhost:5000/api/posts',
+    'https://social-media-backend-fw8c.onrender.com/api/posts',
     { content },
     {
       headers: {

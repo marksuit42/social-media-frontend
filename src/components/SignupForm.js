@@ -14,7 +14,7 @@ const SignupForm = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/register', { email, password });
+      const response = await axios.post('https://social-media-backend-fw8c.onrender.com/api/auth/register', { email, password });
       console.log('Response:', response);
       toast.success(response.data);
     } catch (error) {

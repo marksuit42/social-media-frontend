@@ -8,7 +8,7 @@ const FollowRequests = () => {
     const fetchFollowRequests = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/follows/requests', {
+        const response = await axios.get('https://social-media-backend-fw8c.onrender.com/api/follows/requests', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -25,7 +25,7 @@ const FollowRequests = () => {
   const handleAccept = async (followId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/api/follows/accept/${followId}`, {}, {
+      await axios.post(`https://social-media-backend-fw8c.onrender.com/api/follows/accept/${followId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -39,7 +39,7 @@ const FollowRequests = () => {
   const handleDecline = async (followId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`http://localhost:5000/api/follows/decline/${followId}`, {}, {
+      await axios.post(`https://social-media-backend-fw8c.onrender.com/api/follows/decline/${followId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

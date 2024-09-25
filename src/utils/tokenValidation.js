@@ -9,7 +9,7 @@ export const validateToken = async () => {
   }
 
   try {
-    const response = await axios.get('http://localhost:5000/api/auth/validate-token', {
+    const response = await axios.get('https://social-media-backend-fw8c.onrender.com/api/auth/validate-token', {
       headers: {
         Authorization: `Bearer ${token}`  // Send the token in the Authorization header
       }

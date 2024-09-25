@@ -8,7 +8,7 @@ const FriendList = () => {
     const fetchFollowing = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/follows/following', {
+        const response = await axios.get('https://social-media-backend-fw8c.onrender.com/api/follows/following', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
