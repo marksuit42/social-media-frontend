@@ -21,6 +21,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
             Authorization: `Bearer ${token}`,
           },
         });
+        
         setCurrentUser(response.data);
       } catch (error) {
         console.error('Error fetching current user:', error);
@@ -35,6 +36,7 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(response.data);
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching comments:', error);
@@ -174,10 +176,11 @@ const AddComment = ({ postId, onCommentAdded, postAuthorId }) => {
                 <>
                   <p>{comment.content}</p>
                   <small className="text-muted">{new Date(comment.createdAt).toLocaleString()}</small>
+                  <p className="text-muted">Commented by: {comment.author.email}</p> {/* Display comment author email */}
                   <button onClick={() => handleLikeComment(comment._id)} className="btn btn-link">
                     <FontAwesomeIcon icon={faThumbsUp} /> {comment.likeCount}
                   </button>
-                  {(comment.author === currentUser._id || postAuthorId === currentUser._id) && (
+                  {(comment.author._id === currentUser._id || postAuthorId === currentUser._id) && (
                     <>
                       <button onClick={() => startEditing(comment)} className="btn btn-link">
                         <FontAwesomeIcon icon={faEdit} />

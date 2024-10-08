@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './FriendList.css'; // Import the CSS file for styling
 
-const FriendList = () => {
-  const [following, setFollowing] = useState([]);
+const FriendList = ({ onFriendClick }) => {
+  const [friends, setFriends] = useState([]);
 
   useEffect(() => {
-    const fetchFollowing = async () => {
+    const fetchFriends = async () => {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get('https://social-media-backend-fw8c.onrender.com/api/follows/following', {
@@ -13,23 +14,21 @@ const FriendList = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log('Following data:', response.data); // Log the result for debugging
-        setFollowing(response.data);
+        setFriends(response.data);
       } catch (error) {
-        console.error('Error fetching following list:', error);
+        console.error('Error fetching friends list:', error);
       }
     };
 
-    fetchFollowing();
+    fetchFriends();
   }, []);
 
   return (
     <div className="friend-list">
-      <h2>Following</h2>
-      <ul className="list-group">
-        {following.map(user => (
-          <li key={user._id} className="list-group-item">
-            {user.email}
+      <ul>
+        {friends.map((friend) => (
+          <li key={friend._id} onClick={() => onFriendClick(friend)}>
+            {friend.email}
           </li>
         ))}
       </ul>

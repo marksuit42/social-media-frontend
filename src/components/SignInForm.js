@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Use this hook for navigation
+import { useNavigate, Link } from 'react-router-dom';
 import { Button, Form, Container } from 'react-bootstrap';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const SignInForm = () => {
+const SignInForm = ({ setIsSignedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Use the hook to navigate programmatically
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,6 +20,7 @@ const SignInForm = () => {
       const { token } = response.data;
       localStorage.setItem('token', token); // Store token in localStorage
       toast.success('Login successful!');
+      setIsSignedIn(true); // Update the signed-in state
 
       // Redirect to the home page
       navigate('/feed');

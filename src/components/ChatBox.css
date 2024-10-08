@@ -1,0 +1,86 @@
+.chat-box-container {
+    position: fixed; /* Fix the display */
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: auto;
+    height: auto;
+  }
+  
+  .toggle-friend-list-button {
+    margin: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .friend-list-and-chats {
+    display: flex;
+    flex-direction: row-reverse; /* Display friend list and chat boxes on the right side */
+    align-items: flex-end;
+  }
+  
+  .friend-list-container {
+    width: 300px; /* Adjust as needed */
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-bottom: 10px;
+  }
+  
+  .chat-boxes-container {
+    display: flex;
+    flex-direction: row; /* Display chat boxes in a row */
+    align-items: flex-end; /* Align chat boxes to the bottom */
+    flex: 1;
+    overflow-x: auto; /* Allow horizontal scrolling */
+  }
+  
+  .chat-container {
+    width: 300px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
+  
+  .chat-container.minimized {
+    height: 40px; /* Height when minimized */
+    overflow: hidden;
+  }
+  
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .notification-dot {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+  
+  .close-buttons {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }

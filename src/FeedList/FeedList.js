@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AddComment from '../components/AddComment'; // Import AddComment component
+import AddComment from '../components/AddComment';
 
 const FeedList = () => {
   const { posts, setPosts, loading } = usePostContext();
@@ -103,7 +103,6 @@ const FeedList = () => {
       toast.error('Error updating post');
     }
   };
-
 
   const handleCommentAdded = (postId, newComment) => {
     setPosts((prevPosts) =>
