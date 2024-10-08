@@ -8,7 +8,7 @@ import { PostProvider } from './context/PostContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ForgotPasswordForm from './components/ForgotPasswordForm';
-import FriendList from './pages/FriendList'; // Import the FriendList component
+
 
 const AppRoutes = ({ setIsSignedIn }) => {
   return (
